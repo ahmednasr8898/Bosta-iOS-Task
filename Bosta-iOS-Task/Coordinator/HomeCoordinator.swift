@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Domain
 
 protocol HomeCoordinatorProtocol: AnyObject {
     func showProfile()
+    func showAlbumPhotos(album: Album)
 }
 
 class HomeCoordinator: Coordinator {
@@ -16,6 +18,7 @@ class HomeCoordinator: Coordinator {
     
     init() {
         self.navigationController = UINavigationController()
+        navigationController.navigationBar.tintColor = .red
     }
     
     func start() {
@@ -27,6 +30,13 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
     func showProfile() {
         let viewModel = ProfileViewModel()
         let viewController = ProfileViewController(viewModel: viewModel)
+        viewController.coordinator = self
+        show(viewController: viewController)
+    }
+    
+    func showAlbumPhotos(album: Album) {
+        let viewModel = AlbumPhotosViewModel(album: album)
+        let viewController = AlbumPhotosViewController(viewModel: viewModel)
         viewController.coordinator = self
         show(viewController: viewController)
     }

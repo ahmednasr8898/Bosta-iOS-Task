@@ -66,12 +66,14 @@ extension ProfileViewModel: ProfileViewModelInput {
 extension ProfileViewModel: ProfileViewModelOutput {
     
 }
-   
+ 
+
 //MARK: - fetch user -
 //
 extension ProfileViewModel {
     private func fetchUser() {
         indicatorStatus.onNext(true)
+        
         repository.randomUser { [weak self] result in
             guard let self = self else { return }
             
@@ -88,6 +90,7 @@ extension ProfileViewModel {
         }
     }
 }
+
 
 //MARK: - fetch albums -
 //

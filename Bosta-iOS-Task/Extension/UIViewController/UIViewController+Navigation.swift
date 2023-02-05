@@ -12,6 +12,7 @@ import UIKit
 //
 extension UIViewController {
     func setupNavigation() {
+        navigationItem.backButtonTitle = ""
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

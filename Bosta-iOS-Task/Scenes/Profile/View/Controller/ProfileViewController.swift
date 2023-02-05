@@ -68,7 +68,7 @@ extension ProfileViewController {
 }
 
 
-//MARK: - subscribe to error message -
+//MARK: - subscribe to activity indicator status -
 //
 extension ProfileViewController {
     private func subscribeToActivityIndicator() {
@@ -142,9 +142,8 @@ extension ProfileViewController {
 //
 extension ProfileViewController {
     private func subscribeToSelectedItemInTableView() {
-        Observable.zip(albumsTableView.rx.itemSelected, albumsTableView.rx.modelSelected(Album.self)).bind { indexSelected, vacationModel in
-            print("indexSelected", indexSelected.row)
-            print("vacationModel", vacationModel)
+        Observable.zip(albumsTableView.rx.itemSelected, albumsTableView.rx.modelSelected(Album.self)).bind { _, albumModel in
+            self.coordinator?.showAlbumPhotos(album: albumModel)
         }.disposed(by: disposeBag)
     }
 }
