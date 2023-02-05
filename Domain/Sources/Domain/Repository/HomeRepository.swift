@@ -14,7 +14,7 @@ public protocol HomeRepository {
     
     /// fetch all users at a page.
     ///
-    func users(completion: @escaping (Result<[User], NSError>) -> Void)
+    func randomUser(completion: @escaping (Result<User, NSError>) -> Void)
     
     /// fetch album with user id at a page.
     ///
