@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     //MARK: - properties -
     //
     private let viewModel: ProfileViewModelType
+    weak var coordinator: HomeCoordinatorProtocol?
     
     //MARK: - init -
     //

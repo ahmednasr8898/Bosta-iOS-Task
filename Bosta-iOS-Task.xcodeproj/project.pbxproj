@@ -15,6 +15,16 @@
 		79139306298FEA7200F43F42 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79139302298FEA7200F43F42 /* ProfileViewController.swift */; };
 		79139307298FEA7200F43F42 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79139303298FEA7200F43F42 /* ProfileViewModel.swift */; };
 		79139308298FEA7200F43F42 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79139304298FEA7200F43F42 /* ProfileViewController.xib */; };
+		79139313298FEC4F00F43F42 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 79139312298FEC4F00F43F42 /* Networking */; };
+		79139315298FEC5400F43F42 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 79139314298FEC5400F43F42 /* Core */; };
+		79139317298FEC5700F43F42 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 79139316298FEC5700F43F42 /* Domain */; };
+		79139319298FEC5B00F43F42 /* UIBostaStyle in Frameworks */ = {isa = PBXBuildFile; productRef = 79139318298FEC5B00F43F42 /* UIBostaStyle */; };
+		7913931D298FECB100F43F42 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913931B298FECB100F43F42 /* SplashScreenViewController.swift */; };
+		7913931E298FECB100F43F42 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7913931C298FECB100F43F42 /* SplashScreenViewController.xib */; };
+		79139324298FEE5C00F43F42 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79139323298FEE5C00F43F42 /* Coordinator.swift */; };
+		79139326298FEE7C00F43F42 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79139325298FEE7C00F43F42 /* SplashCoordinator.swift */; };
+		79139328298FEF0C00F43F42 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79139327298FEF0C00F43F42 /* HomeCoordinator.swift */; };
+		7913932A298FEFCA00F43F42 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79139329298FEFCA00F43F42 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +42,12 @@
 		7913930E298FEB7900F43F42 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 		7913930F298FEB8800F43F42 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		79139310298FEB9800F43F42 /* UIBostaStyle */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIBostaStyle; sourceTree = "<group>"; };
+		7913931B298FECB100F43F42 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		7913931C298FECB100F43F42 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
+		79139323298FEE5C00F43F42 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		79139325298FEE7C00F43F42 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
+		79139327298FEF0C00F43F42 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		79139329298FEFCA00F43F42 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +55,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79139319298FEC5B00F43F42 /* UIBostaStyle in Frameworks */,
+				79139317298FEC5700F43F42 /* Domain in Frameworks */,
+				79139313298FEC4F00F43F42 /* Networking in Frameworks */,
+				79139315298FEC5400F43F42 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +74,7 @@
 				7913930D298FEB6600F43F42 /* Domain */,
 				791392E8298FE9BA00F43F42 /* Bosta-iOS-Task */,
 				791392E7298FE9BA00F43F42 /* Products */,
+				79139311298FEC4F00F43F42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +91,7 @@
 			children = (
 				791392FD298FE9E500F43F42 /* Delegate */,
 				791392FE298FEA0500F43F42 /* Utilities */,
+				79139322298FEE3B00F43F42 /* Coordinator */,
 				791392FF298FEA5200F43F42 /* Scenes */,
 			);
 			path = "Bosta-iOS-Task";
@@ -97,6 +119,7 @@
 		791392FF298FEA5200F43F42 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7913931A298FEC7E00F43F42 /* SplashScreen */,
 				79139300298FEA5F00F43F42 /* Profile */,
 			);
 			path = Scenes;
@@ -145,6 +168,57 @@
 			path = Xib;
 			sourceTree = "<group>";
 		};
+		79139311298FEC4F00F43F42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7913931A298FEC7E00F43F42 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7913931F298FECBE00F43F42 /* View */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		7913931F298FECBE00F43F42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79139320298FECC500F43F42 /* Controller */,
+				79139321298FECCB00F43F42 /* Xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		79139320298FECC500F43F42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7913931B298FECB100F43F42 /* SplashScreenViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		79139321298FECCB00F43F42 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				7913931C298FECB100F43F42 /* SplashScreenViewController.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		79139322298FEE3B00F43F42 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				79139323298FEE5C00F43F42 /* Coordinator.swift */,
+				79139329298FEFCA00F43F42 /* AppCoordinator.swift */,
+				79139325298FEE7C00F43F42 /* SplashCoordinator.swift */,
+				79139327298FEF0C00F43F42 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,6 +235,12 @@
 			dependencies = (
 			);
 			name = "Bosta-iOS-Task";
+			packageProductDependencies = (
+				79139312298FEC4F00F43F42 /* Networking */,
+				79139314298FEC5400F43F42 /* Core */,
+				79139316298FEC5700F43F42 /* Domain */,
+				79139318298FEC5B00F43F42 /* UIBostaStyle */,
+			);
 			productName = "Bosta-iOS-Task";
 			productReference = 791392E6298FE9BA00F43F42 /* Bosta-iOS-Task.app */;
 			productType = "com.apple.product-type.application";
@@ -204,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				791392F6298FE9BC00F43F42 /* LaunchScreen.storyboard in Resources */,
+				7913931E298FECB100F43F42 /* SplashScreenViewController.xib in Resources */,
 				791392F3298FE9BC00F43F42 /* Assets.xcassets in Resources */,
 				79139308298FEA7200F43F42 /* ProfileViewController.xib in Resources */,
 			);
@@ -217,10 +298,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				79139307298FEA7200F43F42 /* ProfileViewModel.swift in Sources */,
+				79139326298FEE7C00F43F42 /* SplashCoordinator.swift in Sources */,
+				7913932A298FEFCA00F43F42 /* AppCoordinator.swift in Sources */,
+				79139328298FEF0C00F43F42 /* HomeCoordinator.swift in Sources */,
 				79139305298FEA7200F43F42 /* ProfileViewModelType.swift in Sources */,
+				7913931D298FECB100F43F42 /* SplashScreenViewController.swift in Sources */,
 				79139306298FEA7200F43F42 /* ProfileViewController.swift in Sources */,
 				791392EA298FE9BA00F43F42 /* AppDelegate.swift in Sources */,
 				791392EC298FE9BA00F43F42 /* SceneDelegate.swift in Sources */,
+				79139324298FEE5C00F43F42 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +522,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79139312298FEC4F00F43F42 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		79139314298FEC5400F43F42 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		79139316298FEC5700F43F42 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		79139318298FEC5B00F43F42 /* UIBostaStyle */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIBostaStyle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 791392DE298FE9BA00F43F42 /* Project object */;
 }
