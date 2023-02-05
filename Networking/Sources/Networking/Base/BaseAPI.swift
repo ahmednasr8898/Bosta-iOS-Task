@@ -24,12 +24,12 @@ public class BaseAPI<T: TargetType> {
                     let json = try JSONDecoder().decode(M.self, from: data)
                     completion(.success(json))
                 } catch {
-                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
+                    let error = NSError(domain: target.path, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError.rawValue])
                     completion(.failure(error))
                 }
                 
             case .failure(_):
-                let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
+                let error = NSError(domain: target.path, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError.rawValue])
                 completion(.failure(error))
             }
         }

@@ -12,4 +12,7 @@ import Foundation
 enum ProfileConstants {
     ///strings
     static let navigationTitle = "Profile"
+    
+    ///height of cell
+    static let cellHeight: CGFloat = 48.0
 }

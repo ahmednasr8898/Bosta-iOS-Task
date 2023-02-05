@@ -10,11 +10,9 @@ import Networking
 import Domain
 
 public struct HomeRepository: Domain.HomeRepository {
-    private let api: HomeAPIProtocol
+    private let api: HomeAPIProtocol = HomeAPI()
     
-    public init(api: HomeAPIProtocol) {
-        self.api = api
-    }
+    public init() { } 
 }
 
 //MARK: - fetch random user -

@@ -15,7 +15,7 @@ import Domain
 //
 extension Networking.UserElement {
     func toDomain() -> Domain.User {
-        let address = address.street + address.suite + address.city + address.zipcode
+        let address = "\(address.street) \(address.suite) \(address.city) \(address.zipcode)"
         let model = Domain.User(id: id, name: name, address: address)
         return model
     }

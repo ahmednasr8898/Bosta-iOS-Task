@@ -27,6 +27,10 @@
 		7913932A298FEFCA00F43F42 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79139329298FEFCA00F43F42 /* AppCoordinator.swift */; };
 		79463FB12990313600B59A92 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79463FB02990313600B59A92 /* UIViewController+Navigation.swift */; };
 		79463FB5299031EB00B59A92 /* ProfileConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79463FB4299031EB00B59A92 /* ProfileConstants.swift */; };
+		79463FB82990336200B59A92 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 79463FB72990336200B59A92 /* RxCocoa */; };
+		79463FBA2990336200B59A92 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 79463FB92990336200B59A92 /* RxSwift */; };
+		79463FBE2990406300B59A92 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79463FBC2990406300B59A92 /* AlbumTableViewCell.swift */; };
+		79463FBF2990406300B59A92 /* AlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79463FBD2990406300B59A92 /* AlbumTableViewCell.xib */; };
 		79F1517C29900F4400D8F5FD /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 79F1517B29900F4400D8F5FD /* Moya */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,8 @@
 		79139329298FEFCA00F43F42 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		79463FB02990313600B59A92 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		79463FB4299031EB00B59A92 /* ProfileConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConstants.swift; sourceTree = "<group>"; };
+		79463FBC2990406300B59A92 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		79463FBD2990406300B59A92 /* AlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +66,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79463FB82990336200B59A92 /* RxCocoa in Frameworks */,
 				79139319298FEC5B00F43F42 /* UIBostaStyle in Frameworks */,
 				79139317298FEC5700F43F42 /* Domain in Frameworks */,
 				79139313298FEC4F00F43F42 /* Networking in Frameworks */,
 				79F1517C29900F4400D8F5FD /* Moya in Frameworks */,
 				79139315298FEC5400F43F42 /* Core in Frameworks */,
+				79463FBA2990336200B59A92 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				79463FB3299031D500B59A92 /* Constant */,
-				79139309298FEB1E00F43F42 /* ViewModel */,
 				7913930A298FEB2900F43F42 /* View */,
+				79139309298FEB1E00F43F42 /* ViewModel */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -156,6 +164,7 @@
 			children = (
 				7913930B298FEB2F00F43F42 /* Controller */,
 				7913930C298FEB3400F43F42 /* Xib */,
+				79463FBB2990405000B59A92 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,6 +260,15 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		79463FBB2990405000B59A92 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				79463FBC2990406300B59A92 /* AlbumTableViewCell.swift */,
+				79463FBD2990406300B59A92 /* AlbumTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,6 +291,8 @@
 				79139316298FEC5700F43F42 /* Domain */,
 				79139318298FEC5B00F43F42 /* UIBostaStyle */,
 				79F1517B29900F4400D8F5FD /* Moya */,
+				79463FB72990336200B59A92 /* RxCocoa */,
+				79463FB92990336200B59A92 /* RxSwift */,
 			);
 			productName = "Bosta-iOS-Task";
 			productReference = 791392E6298FE9BA00F43F42 /* Bosta-iOS-Task.app */;
@@ -304,6 +324,7 @@
 			mainGroup = 791392DD298FE9BA00F43F42;
 			packageReferences = (
 				79F1517A29900F4400D8F5FD /* XCRemoteSwiftPackageReference "Moya" */,
+				79463FB62990336200B59A92 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 791392E7298FE9BA00F43F42 /* Products */;
 			projectDirPath = "";
@@ -322,6 +343,7 @@
 				791392F6298FE9BC00F43F42 /* LaunchScreen.storyboard in Resources */,
 				7913931E298FECB100F43F42 /* SplashScreenViewController.xib in Resources */,
 				791392F3298FE9BC00F43F42 /* Assets.xcassets in Resources */,
+				79463FBF2990406300B59A92 /* AlbumTableViewCell.xib in Resources */,
 				79139308298FEA7200F43F42 /* ProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +365,7 @@
 				79463FB5299031EB00B59A92 /* ProfileConstants.swift in Sources */,
 				791392EA298FE9BA00F43F42 /* AppDelegate.swift in Sources */,
 				791392EC298FE9BA00F43F42 /* SceneDelegate.swift in Sources */,
+				79463FBE2990406300B59A92 /* AlbumTableViewCell.swift in Sources */,
 				79139324298FEE5C00F43F42 /* Coordinator.swift in Sources */,
 				79463FB12990313600B59A92 /* UIViewController+Navigation.swift in Sources */,
 			);
@@ -562,6 +585,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		79463FB62990336200B59A92 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		79F1517A29900F4400D8F5FD /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -588,6 +619,16 @@
 		79139318298FEC5B00F43F42 /* UIBostaStyle */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UIBostaStyle;
+		};
+		79463FB72990336200B59A92 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79463FB62990336200B59A92 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		79463FB92990336200B59A92 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79463FB62990336200B59A92 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		79F1517B29900F4400D8F5FD /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
