@@ -38,5 +38,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        title = "Profile"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
