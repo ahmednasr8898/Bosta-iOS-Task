@@ -2,7 +2,7 @@
 
 # Application Structure: -
 
-1- Clean Architecture (Domain Layer, Core Layer, Networking layer).
+1- Clean Architecture (Domain Layer, Core Layer, Networking layer, UI layer).
 
 2- Clean MVVM (inputs & outputs) with RxSwift.
 
@@ -18,4 +18,4 @@
 
 3- Album photos list screen ( can search with album title).
 
-4- Image viewer screen ( can scrolling and share image path ).
+4- Image viewer screen ( can zooming and share image path ).
