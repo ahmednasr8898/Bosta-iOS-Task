@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlbumPhotosViewController" customModule="Bosta_iOS_Task" customModuleProvider="target">
             <connections>
                 <outlet property="albumPhotosCollectionView" destination="8rD-Rf-mqH" id="z6T-Ow-6WJ"/>
+                <outlet property="searchTextField" destination="wEx-6q-QBC" id="Iqy-RB-Scv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,27 +31,25 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="J5O-R4-4OX">
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEx-6q-QBC">
                     <rect key="frame" x="0.0" y="67" width="393" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="Ho6-98-KJD"/>
+                        <constraint firstAttribute="height" constant="44" id="WRv-jp-Ghp"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="mrx-R1-oyq"/>
-                    </connections>
-                </searchBar>
+                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="J5O-R4-4OX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4gt-7t-9tH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wEx-6q-QBC" secondAttribute="trailing" id="3ZO-kl-VP0"/>
                 <constraint firstItem="8rD-Rf-mqH" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="605-GM-Lk5"/>
                 <constraint firstItem="8rD-Rf-mqH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RXH-kO-6OK"/>
                 <constraint firstAttribute="bottom" secondItem="8rD-Rf-mqH" secondAttribute="bottom" id="RaP-xt-KBq"/>
-                <constraint firstItem="J5O-R4-4OX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="VXk-Rd-lyR"/>
-                <constraint firstItem="8rD-Rf-mqH" firstAttribute="top" secondItem="J5O-R4-4OX" secondAttribute="bottom" constant="8" id="Wi0-yP-RqS"/>
-                <constraint firstItem="J5O-R4-4OX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ukA-U8-ZFr"/>
+                <constraint firstItem="wEx-6q-QBC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="rdk-Uv-Sx3"/>
+                <constraint firstItem="wEx-6q-QBC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wtz-Ie-cGV"/>
+                <constraint firstItem="8rD-Rf-mqH" firstAttribute="top" secondItem="wEx-6q-QBC" secondAttribute="bottom" constant="8" id="yqf-vO-I93"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

@@ -16,6 +16,7 @@ class AlbumPhotosViewController: UIViewController {
 
     //MARK: - outlets -
     //
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var albumPhotosCollectionView: UICollectionView!
     
     //MARK: - properties -
@@ -40,10 +41,11 @@ class AlbumPhotosViewController: UIViewController {
         super.viewDidLoad()
         subscribeToActivityIndicator()
         subscribeToErrorMessage()
+        bindToSearchTextField()
         setupCollectionView()
-        subscribeToCollectionView()
+        bindToCollectionView()
         sizeOfCollectionViewCell()
-        subscribeToSelectedItemInCollectionView()
+        didSelectedItemInCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +92,18 @@ extension AlbumPhotosViewController {
 }
 
 
+//MARK: - bind to search text -
+//
+extension AlbumPhotosViewController {
+    private func bindToSearchTextField() {
+        searchTextField.rx.text.orEmpty
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+            .bind(to: viewModel.searchValue)
+            .disposed(by: disposeBag)
+    }
+}
+
+
 //MARK: - set up collection view -
 //
 extension AlbumPhotosViewController {
@@ -100,10 +114,10 @@ extension AlbumPhotosViewController {
 }
 
 
-//MARK: - subscribe to collection view
+//MARK: - bind to collection view
 //
 extension AlbumPhotosViewController {
-    private func subscribeToCollectionView() {
+    private func bindToCollectionView() {
         viewModel.albumPhotosObservable.bind(to: self.albumPhotosCollectionView.rx.items(cellIdentifier: AlbumPhotoCollectionViewCell.identifier, cellType: AlbumPhotoCollectionViewCell.self)) { row, item, cell in
             
             cell.configureCell(imagePath: item.url)
@@ -125,12 +139,13 @@ extension AlbumPhotosViewController {
 }
 
 
-//MARK: - subscribe to selected item in collection view
+//MARK: - did selected item in collection view
 //
 extension AlbumPhotosViewController {
-    private func subscribeToSelectedItemInCollectionView() {
+    private func didSelectedItemInCollectionView() {
         Observable.zip(albumPhotosCollectionView.rx.itemSelected, albumPhotosCollectionView.rx.modelSelected(AlbumPhoto.self)).bind { _, albumPhotoModel in
 
+            self.view.endEditing(true)
             self.coordinator?.showImageViewer(imagePath: albumPhotoModel.url)
 
         }.disposed(by: disposeBag)

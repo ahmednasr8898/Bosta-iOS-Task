@@ -26,6 +26,7 @@ protocol AlbumPhotosViewModelInput {
 protocol AlbumPhotosViewModelOutput {
     var indicatorStatusObservable: Observable<Bool> { get }
     var errorMessageObservable: Observable<String> { get }
+    var searchValue: BehaviorRelay<String> { get }
     var navigationTitleObservable: Observable<String> { get }
     var albumPhotosObservable: Observable<[AlbumPhoto]> { get }
 }
