@@ -11,6 +11,7 @@ import Domain
 protocol HomeCoordinatorProtocol: AnyObject {
     func showProfile()
     func showAlbumPhotos(album: Album)
+    func showImageViewer(imagePath: String)
 }
 
 class HomeCoordinator: Coordinator {
@@ -38,6 +39,12 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
         let viewModel = AlbumPhotosViewModel(album: album)
         let viewController = AlbumPhotosViewController(viewModel: viewModel)
         viewController.coordinator = self
+        show(viewController: viewController)
+    }
+    
+    func showImageViewer(imagePath: String) {
+        let viewModel = ImageViewerViewModel(imagePath: imagePath)
+        let viewController = ImageViewerViewController(viewModel: viewModel)
         show(viewController: viewController)
     }
 }

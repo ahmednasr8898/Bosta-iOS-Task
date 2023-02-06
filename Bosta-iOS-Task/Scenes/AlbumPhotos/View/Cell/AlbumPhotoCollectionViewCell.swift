@@ -24,4 +24,9 @@ class AlbumPhotoCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureCell(imagePath: String) {
+        let url = URL(string: imagePath)
+        albumImageView.setImage(url: url)
+    }
 }

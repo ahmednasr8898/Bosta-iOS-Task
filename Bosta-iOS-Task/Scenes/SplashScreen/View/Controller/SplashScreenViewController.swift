@@ -30,7 +30,7 @@ class SplashScreenViewController: UIViewController {
 extension SplashScreenViewController {
     private func animationSplash() {
         splashTitleLabel.text = ""
-        let title = "B o s t a"
+        let title = SplashConstants.title
         var charIndex = 0.0
         
         for letter in title {

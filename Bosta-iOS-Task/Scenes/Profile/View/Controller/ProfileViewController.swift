@@ -133,6 +133,7 @@ extension ProfileViewController {
         viewModel.albumsObservable.bind(to: albumsTableView.rx.items(cellIdentifier: AlbumTableViewCell.identifier, cellType: AlbumTableViewCell.self)) { row, item, cell in
             
             cell.configureCell(title: item.title)
+            
         }.disposed(by: disposeBag)
     }
 }
@@ -143,7 +144,9 @@ extension ProfileViewController {
 extension ProfileViewController {
     private func subscribeToSelectedItemInTableView() {
         Observable.zip(albumsTableView.rx.itemSelected, albumsTableView.rx.modelSelected(Album.self)).bind { _, albumModel in
+            
             self.coordinator?.showAlbumPhotos(album: albumModel)
+            
         }.disposed(by: disposeBag)
     }
 }

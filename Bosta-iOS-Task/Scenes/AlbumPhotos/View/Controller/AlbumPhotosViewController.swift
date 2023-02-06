@@ -16,6 +16,7 @@ class AlbumPhotosViewController: UIViewController {
 
     //MARK: - outlets -
     //
+    @IBOutlet weak var albumPhotosCollectionView: UICollectionView!
     
     //MARK: - properties -
     //
@@ -39,6 +40,10 @@ class AlbumPhotosViewController: UIViewController {
         super.viewDidLoad()
         subscribeToActivityIndicator()
         subscribeToErrorMessage()
+        setupCollectionView()
+        subscribeToCollectionView()
+        sizeOfCollectionViewCell()
+        subscribeToSelectedItemInCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,3 +89,50 @@ extension AlbumPhotosViewController {
     }
 }
 
+
+//MARK: - set up collection view -
+//
+extension AlbumPhotosViewController {
+    private func setupCollectionView() {
+        albumPhotosCollectionView.register(AlbumPhotoCollectionViewCell.nib(), forCellWithReuseIdentifier: AlbumPhotoCollectionViewCell.identifier)
+        albumPhotosCollectionView.keyboardDismissMode = .onDrag
+    }
+}
+
+
+//MARK: - subscribe to collection view
+//
+extension AlbumPhotosViewController {
+    private func subscribeToCollectionView() {
+        viewModel.albumPhotosObservable.bind(to: self.albumPhotosCollectionView.rx.items(cellIdentifier: AlbumPhotoCollectionViewCell.identifier, cellType: AlbumPhotoCollectionViewCell.self)) { row, item, cell in
+            
+            cell.configureCell(imagePath: item.url)
+            
+        }.disposed(by: disposeBag)
+    }
+}
+
+
+//MARK: - size of collection view
+//
+extension AlbumPhotosViewController {
+    private func sizeOfCollectionViewCell() {
+        let flowLayout = UICollectionViewFlowLayout()
+        let size = (albumPhotosCollectionView.frame.size.width - CGFloat(30)) / CGFloat(3)
+        flowLayout.itemSize = CGSize(width: size, height: size)
+        albumPhotosCollectionView.setCollectionViewLayout(flowLayout, animated: true)
+    }
+}
+
+
+//MARK: - subscribe to selected item in collection view
+//
+extension AlbumPhotosViewController {
+    private func subscribeToSelectedItemInCollectionView() {
+        Observable.zip(albumPhotosCollectionView.rx.itemSelected, albumPhotosCollectionView.rx.modelSelected(AlbumPhoto.self)).bind { _, albumPhotoModel in
+
+            self.coordinator?.showImageViewer(imagePath: albumPhotoModel.url)
+
+        }.disposed(by: disposeBag)
+    }
+}

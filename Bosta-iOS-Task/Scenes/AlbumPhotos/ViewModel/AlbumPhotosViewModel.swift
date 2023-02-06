@@ -47,7 +47,6 @@ class AlbumPhotosViewModel {
     ///
     init(album: Album) {
         self.album = album
-        self.navigationTitle.onNext(album.title)
         self.fetchAlbumPhotos()
     }
 }
@@ -82,6 +81,7 @@ extension AlbumPhotosViewModel {
             case .success(let list):
                 guard !list.isEmpty else { return }
                 self.albumPhotos.onNext(list)
+                self.navigationTitle.onNext(self.album.title)
                 
             case .failure(let error):
                 self.errorMessage.onNext(error.userInfo[NSLocalizedDescriptionKey] as? String ?? "")
