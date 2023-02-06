@@ -114,7 +114,7 @@ extension AlbumPhotosViewController {
 }
 
 
-//MARK: - bind to collection view
+//MARK: - bind to collection view -
 //
 extension AlbumPhotosViewController {
     private func bindToCollectionView() {
@@ -127,7 +127,7 @@ extension AlbumPhotosViewController {
 }
 
 
-//MARK: - size of collection view
+//MARK: - size of collection view -
 //
 extension AlbumPhotosViewController {
     private func sizeOfCollectionViewCell() {
@@ -139,12 +139,13 @@ extension AlbumPhotosViewController {
 }
 
 
-//MARK: - did selected item in collection view
+//MARK: - did selected item in collection view -
 //
 extension AlbumPhotosViewController {
     private func didSelectedItemInCollectionView() {
-        Observable.zip(albumPhotosCollectionView.rx.itemSelected, albumPhotosCollectionView.rx.modelSelected(AlbumPhoto.self)).bind { _, albumPhotoModel in
-
+        Observable.zip(albumPhotosCollectionView.rx.itemSelected, albumPhotosCollectionView.rx.modelSelected(AlbumPhoto.self)).bind { [weak self] _, albumPhotoModel in
+            guard let self = self else { return }
+            
             self.view.endEditing(true)
             self.coordinator?.showImageViewer(imagePath: albumPhotoModel.url)
 

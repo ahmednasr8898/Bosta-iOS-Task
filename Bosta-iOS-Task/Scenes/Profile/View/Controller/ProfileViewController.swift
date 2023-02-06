@@ -116,7 +116,7 @@ extension ProfileViewController {
 }
 
 
-//MARK: - set up table view
+//MARK: - set up table view -
 //
 extension ProfileViewController {
     private func setupTableView() {
@@ -126,7 +126,7 @@ extension ProfileViewController {
 }
 
 
-//MARK: - bind to table view
+//MARK: - bind to table view -
 //
 extension ProfileViewController {
     private func bindToTableView() {
@@ -139,11 +139,12 @@ extension ProfileViewController {
 }
 
 
-//MARK: - did selected item in table view
+//MARK: - did selected item in table view -
 //
 extension ProfileViewController {
     private func didSelectedItemInTableView() {
-        Observable.zip(albumsTableView.rx.itemSelected, albumsTableView.rx.modelSelected(Album.self)).bind { _, albumModel in
+        Observable.zip(albumsTableView.rx.itemSelected, albumsTableView.rx.modelSelected(Album.self)).bind { [weak self] _, albumModel in
+            guard let self = self else { return }
             
             self.coordinator?.showAlbumPhotos(album: albumModel)
             
