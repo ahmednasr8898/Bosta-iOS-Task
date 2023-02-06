@@ -37,25 +37,19 @@ class AlbumPhotosViewModel {
         return errorMessage
     }
     
-    var searchValue = BehaviorRelay<String>(value: "")
-    lazy var searchValueObservable: Observable<String> = searchValue.asObservable()
-    
     private var navigationTitle = PublishSubject<String>()
     var navigationTitleObservable: Observable<String> {
         return navigationTitle
     }
     
-    private var albumPhotos = PublishSubject<[AlbumPhoto]>()
-    var albumPhotosObservable: Observable<[AlbumPhoto]> {
-        return albumPhotos
-    }
+    let albumPhotos = BehaviorRelay<[AlbumPhoto]>.init(value: [])
+   
     
     ///init
     ///
     init(album: Album) {
         self.album = album
         self.fetchAlbumPhotos()
-        self.subscribeToSearchTextChanges()
     }
 }
 
@@ -87,25 +81,12 @@ extension AlbumPhotosViewModel {
             
             switch result {
             case .success(let list):
-                guard !list.isEmpty else { return }
-                self.albumPhotos.onNext(list)
+                self.albumPhotos.accept(list)
                 self.navigationTitle.onNext(self.album.title)
                 
             case .failure(let error):
                 self.errorMessage.onNext(error.userInfo[NSLocalizedDescriptionKey] as? String ?? "")
             }
         }
-    }
-}
-
-
-
-//MARK: - subscribe to search text changes -
-//
-extension AlbumPhotosViewModel {
-    private func subscribeToSearchTextChanges() {
-        searchValueObservable.subscribe { value in
-            print("changes", value)
-        }.disposed(by: disposeBag)
     }
 }

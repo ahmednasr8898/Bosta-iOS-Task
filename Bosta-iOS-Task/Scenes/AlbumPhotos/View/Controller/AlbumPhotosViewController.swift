@@ -41,7 +41,6 @@ class AlbumPhotosViewController: UIViewController {
         super.viewDidLoad()
         subscribeToActivityIndicator()
         subscribeToErrorMessage()
-        bindToSearchTextField()
         setupCollectionView()
         bindToCollectionView()
         sizeOfCollectionViewCell()
@@ -92,18 +91,6 @@ extension AlbumPhotosViewController {
 }
 
 
-//MARK: - bind to search text -
-//
-extension AlbumPhotosViewController {
-    private func bindToSearchTextField() {
-        searchTextField.rx.text.orEmpty
-            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
-            .bind(to: viewModel.searchValue)
-            .disposed(by: disposeBag)
-    }
-}
-
-
 //MARK: - set up collection view -
 //
 extension AlbumPhotosViewController {
@@ -118,11 +105,23 @@ extension AlbumPhotosViewController {
 //
 extension AlbumPhotosViewController {
     private func bindToCollectionView() {
-        viewModel.albumPhotosObservable.bind(to: self.albumPhotosCollectionView.rx.items(cellIdentifier: AlbumPhotoCollectionViewCell.identifier, cellType: AlbumPhotoCollectionViewCell.self)) { row, item, cell in
-            
-            cell.configureCell(imagePath: item.url)
-            
-        }.disposed(by: disposeBag)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let _ = self.searchTextField.rx.text.orEmpty
+                .throttle(.microseconds(300), scheduler: MainScheduler.instance)
+                .distinctUntilChanged()
+                .map({ [unowned self] text in
+                    
+                    self.viewModel.albumPhotos.value.filter({ item in
+                        
+                        text.isEmpty || item.title.lowercased().contains(text.lowercased())
+                    })
+                    
+                }).bind(to: self.albumPhotosCollectionView.rx.items(cellIdentifier: AlbumPhotoCollectionViewCell.identifier, cellType: AlbumPhotoCollectionViewCell.self)) { row, item, cell in
+                    
+                    cell.configureCell(imagePath: item.url)
+                    
+                }.disposed(by: self.disposeBag)
+        }
     }
 }
 
