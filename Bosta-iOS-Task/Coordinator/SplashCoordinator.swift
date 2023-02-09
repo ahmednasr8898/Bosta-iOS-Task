@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 protocol SplashCoordinatorProtocol: AnyObject {
     func showSplashScreen()
     func presentHome()

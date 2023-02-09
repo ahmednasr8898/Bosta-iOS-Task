@@ -8,6 +8,7 @@
 import UIKit
 import Domain
 
+
 protocol HomeCoordinatorProtocol: AnyObject {
     func showProfile()
     func showAlbumPhotos(album: Album)

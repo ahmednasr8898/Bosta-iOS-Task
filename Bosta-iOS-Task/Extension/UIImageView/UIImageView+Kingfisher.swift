@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 
+
 protocol imageDownloaded {
     func setImage(url: URL?, placeholder: UIImage?)
 }

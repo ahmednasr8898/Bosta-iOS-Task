@@ -12,15 +12,15 @@ import Foundation
 ///
 public protocol HomeRepository {
     
-    /// fetch all users at a page.
+    /// fetch random user
     ///
     func randomUser(completion: @escaping (Result<User, NSError>) -> Void)
     
-    /// fetch album with user id at a page.
+    /// fetch album with user id
     ///
     func albums(userId: Int, completion: @escaping (Result<[Album], NSError>) -> Void)
     
-    /// fetch album photos with album id at a page.
+    /// fetch album photos with album id
     ///
     func albumPhotos(albumId: Int, completion: @escaping (Result<[AlbumPhoto], NSError>) -> Void)
 }
