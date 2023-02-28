@@ -13,11 +13,8 @@ import RxCocoa
 
 
 class AlbumPhotosViewModel {
-    ///core repository
-    ///
-    private let repository = HomeRepository()
     
-    ///
+    ///private
     ///
     private let disposeBag = DisposeBag()
     
@@ -74,7 +71,7 @@ extension AlbumPhotosViewModel {
     private func fetchAlbumPhotos() {
         indicatorStatus.onNext(true)
         
-        repository.albumPhotos(albumId: album.id) { [weak self] result in
+        ServiceLocator.homeRepository.albumPhotos(albumId: album.id) { [weak self] result in
             guard let self = self else { return }
             
             self.indicatorStatus.onNext(false)

@@ -15,10 +15,7 @@ import RxCocoa
 
 
 class ProfileViewModel {
-    ///core repository
-    ///
-    private let repository = HomeRepository()
-    
+   
     ///outputs
     ///
     private var indicatorStatus = PublishSubject<Bool>()
@@ -74,7 +71,7 @@ extension ProfileViewModel {
     private func fetchUser() {
         indicatorStatus.onNext(true)
         
-        repository.randomUser { [weak self] result in
+        ServiceLocator.homeRepository.randomUser { [weak self] result in
             guard let self = self else { return }
             
             self.indicatorStatus.onNext(false)
@@ -97,7 +94,7 @@ extension ProfileViewModel {
 extension ProfileViewModel {
     private func fetchAlbums(userId: Int) {
         indicatorStatus.onNext(true)
-        repository.albums(userId: userId) { [weak self] result in
+        ServiceLocator.homeRepository.albums(userId: userId) { [weak self] result in
             guard let self = self else { return }
             
             self.indicatorStatus.onNext(false)

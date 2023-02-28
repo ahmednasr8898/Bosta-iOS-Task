@@ -40,6 +40,7 @@
 		79463FBA2990336200B59A92 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 79463FB92990336200B59A92 /* RxSwift */; };
 		79463FBE2990406300B59A92 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79463FBC2990406300B59A92 /* AlbumTableViewCell.swift */; };
 		79463FBF2990406300B59A92 /* AlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79463FBD2990406300B59A92 /* AlbumTableViewCell.xib */; };
+		7967FE0829AE377200C0D617 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967FE0729AE377200C0D617 /* ServiceLocator.swift */; };
 		79B3E3442990496900D05ECD /* AlbumPhotosViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3E3432990496900D05ECD /* AlbumPhotosViewModelType.swift */; };
 		79B3E3462990499B00D05ECD /* AlbumPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3E3452990499B00D05ECD /* AlbumPhotosViewModel.swift */; };
 		79B3E34A29904B6600D05ECD /* AlbumPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3E34829904B6600D05ECD /* AlbumPhotoCollectionViewCell.swift */; };
@@ -82,6 +83,7 @@
 		79463FB4299031EB00B59A92 /* ProfileConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConstants.swift; sourceTree = "<group>"; };
 		79463FBC2990406300B59A92 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		79463FBD2990406300B59A92 /* AlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumTableViewCell.xib; sourceTree = "<group>"; };
+		7967FE0729AE377200C0D617 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		79B3E3432990496900D05ECD /* AlbumPhotosViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPhotosViewModelType.swift; sourceTree = "<group>"; };
 		79B3E3452990499B00D05ECD /* AlbumPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPhotosViewModel.swift; sourceTree = "<group>"; };
 		79B3E34829904B6600D05ECD /* AlbumPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				791392FD298FE9E500F43F42 /* Delegate */,
 				791392FE298FEA0500F43F42 /* Utilities */,
 				79463FAF2990312000B59A92 /* Extension */,
+				7967FE0629AE376700C0D617 /* ServiceLocator */,
 				79139322298FEE3B00F43F42 /* Coordinator */,
 				791392FF298FEA5200F43F42 /* Scenes */,
 			);
@@ -372,6 +375,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		7967FE0629AE376700C0D617 /* ServiceLocator */ = {
+			isa = PBXGroup;
+			children = (
+				7967FE0729AE377200C0D617 /* ServiceLocator.swift */,
+			);
+			path = ServiceLocator;
+			sourceTree = "<group>";
+		};
 		79B3E3402990494100D05ECD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +543,7 @@
 				7913931D298FECB100F43F42 /* SplashScreenViewController.swift in Sources */,
 				79139306298FEA7200F43F42 /* ProfileViewController.swift in Sources */,
 				79354AD72990E7D600CCC0B5 /* ImageViewerViewModel.swift in Sources */,
+				7967FE0829AE377200C0D617 /* ServiceLocator.swift in Sources */,
 				79463FB5299031EB00B59A92 /* ProfileConstants.swift in Sources */,
 				791392EA298FE9BA00F43F42 /* AppDelegate.swift in Sources */,
 				791392EC298FE9BA00F43F42 /* SceneDelegate.swift in Sources */,
